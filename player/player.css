@@ -1,0 +1,46 @@
+/* Isometric desk (main) + blueprint cutaway (auxiliary). Warm paper ground, one violet accent for Codex. */
+:root{--bg:#f5efe4;--grid:#7a5a3014;--ink:#2a2420;--sub:#5d5248;--muted:#9a8d80;--codex:#5a4bf0;--codexL:#e6e3ff;--green:#1f8a5b;--greenL:#d9f0e3;--amber:#c47f12;--red:#d0453a;--redL:#fbe2df;--bp:#163a5f;--bpL:#2c5b88;--card:#fffdf9}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5d8;color:var(--ink);font-family:"Lesson Latin","Lesson TC","Segoe UI","Microsoft JhengHei",sans-serif}
+button,select,input{font:inherit}
+button,select{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:9px 14px;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--codex);outline-offset:2px}
+#shell{margin:auto;max-width:1400px;padding:20px}
+.page-head h1{font-size:24px;margin:4px 0}
+.note{font-size:14px;color:var(--sub);margin:4px 0 12px}
+#viewport{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 18px 60px #2a242030}
+#stage{position:absolute;left:0;top:0;transform-origin:top left;overflow:hidden;font-family:"Lesson Latin","Lesson TC",sans-serif;background:radial-gradient(1300px 760px at 30% 62%,#fbf7ef 0%,var(--bg) 72%)}
+/* isometric floor lattice */
+#stage:before{content:"";position:absolute;inset:-50%;background-image:repeating-linear-gradient(30deg,var(--grid) 0 1.5px,transparent 1.5px 56px),repeating-linear-gradient(-30deg,var(--grid) 0 1.5px,transparent 1.5px 56px);pointer-events:none}
+#eyebrow{position:absolute;left:96px;top:50px;height:40px;font-weight:700;font-size:22px;letter-spacing:2px;line-height:28px;color:#fff;background:var(--codex);border-radius:6px;padding:6px 16px;white-space:nowrap;box-shadow:5px 5px 0 #2a242022}
+#heading{position:absolute;left:96px;top:102px;width:1728px;height:76px;margin:0;font-size:54px;line-height:76px;font-weight:800;white-space:nowrap}
+#heading .en{font-size:30px;font-weight:600;color:var(--muted);margin-left:22px;letter-spacing:.5px;line-height:1;vertical-align:baseline}
+#subheading{position:absolute;left:96px;top:182px;width:1728px;height:40px;margin:0;font-size:28px;line-height:40px;color:var(--sub);white-space:nowrap}
+#visual{position:absolute;left:96px;top:236px;width:1728px;height:610px}
+#art{display:block;width:100%;height:100%;overflow:visible;font-family:"Lesson Latin","Lesson TC",sans-serif}
+#caption{position:absolute;left:150px;top:868px;width:1620px;height:168px;z-index:3;border-radius:18px;background:#2a2420ec;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 28px;text-align:center;gap:6px}
+#caption1{font-size:40px;line-height:1.3;font-weight:600;white-space:nowrap}
+#caption .secondary{font-size:32px;line-height:1.3;color:#d9d3ff;white-space:nowrap}
+#credit{position:absolute;left:360px;top:300px;width:1200px;height:420px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:34px;background:var(--card);border-radius:28px;box-shadow:16px 16px 0 var(--codex),0 24px 70px #2a242026}
+#credit small{font-size:28px;letter-spacing:2px;color:var(--codex)}
+#credit strong{font-size:104px;letter-spacing:16px}
+#progress-mark{position:absolute;height:6px;background:var(--codex);left:0;bottom:0}
+#controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 0}
+#seek{flex:1;min-width:160px}
+#time{font-variant-numeric:tabular-nums;color:var(--sub);min-width:110px}
+.interaction{padding:20px;border:1px solid #d8cfbf;border-radius:14px;background:#fffdf9;margin-top:6px}
+.interaction h2{font-size:20px;margin:0 0 8px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.lab-card{border:1px solid #e3dccf;border-radius:12px;padding:16px;background:#fbf8f2}
+.lab-card p{margin:6px 0}
+.choices{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.choices button{background:#fff;color:var(--ink);border:1px solid #c9bfae}
+.choices button[aria-pressed=true]{background:var(--codexL);border-color:var(--codex)}
+.feedback{margin:8px 0 0;font-weight:600;min-height:1.4em}
+.feedback.ok{color:var(--green)}.feedback.bad{color:var(--red)}
+.fine{font-size:13px;color:var(--muted)}
+body.export{background:var(--bg)}
+body.export #shell{padding:0;max-width:none}
+body.export #viewport{border-radius:0;box-shadow:none}
+body.export #controls,body.export .interaction,body.export .page-head{display:none}
+@media (max-width:640px){#shell{padding:12px 16px}.page-head h1{font-size:20px}}
